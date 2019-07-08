@@ -1,0 +1,54 @@
+{% extends "fileserver/base.html" %} {% load staticfiles %} {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lista de Funcionário</h5>
+
+                    {% if Membros|length > 0 %}
+                    <p class="card-text">
+                        Aqui está a lista de <code>Membros</code> cadastrados.
+                    </p>
+
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+
+                                <th>Nome</th>
+                                <th>Cargo</th>
+                                <th>E-mail</th>
+                                <th>Status</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for membro in Membros %}
+                            <tr>
+
+                                <td>{{ membro.nome }}</td>
+                                <td>{{ membro.cargo }}</td>
+                                <td>{{ membro.email }}</td>
+                                <td>{{ membro.status }}</td>
+
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="text-center mt-5 mb-5 jumbotron">
+                        <h5>Nenhum <code>Membro</code> cadastrado ainda.</h5>
+                    </div>
+                    {% endif %}
+                    <hr />
+                    <div class="text-right">
+                        <a href="{% url 'cadastrar_usuario' %}" class="btn btn-primary">
+                Cadastrar membro
+              </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endblock content %}

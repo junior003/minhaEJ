@@ -13,3 +13,5 @@ class Membro(models.Model):
     cargo = models.CharField(max_length=20, null=False)
     email = models.EmailField(null=False)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES)
+    def __unicode__(self):
+                return self.nome
