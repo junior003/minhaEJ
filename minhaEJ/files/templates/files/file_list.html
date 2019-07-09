@@ -1,44 +1,69 @@
-{% extends "fileserver/base.html" %} 
+{% extends "fileserver/base.html" %} {% block content %} {% load static %}
 
-{% block content %}
 
-<legend class="border-bottom mb-4">Meus arquivos</legend>
-
-<p>
-    <a href="{% url 'upload_file' %}" class="btn btn-primary">Fazer upload de arquivo</a>
 </p>
 
-{% if number_of_files > 0 %}
 
-    <!-- Caso o usuário tenha algum arquivo armazenado, cria uma tabela para exibição desses arquivos -->
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Tamanho</th>
-                <th>Download</th>            
-            </tr>
-        </thead>
-        <tbody>
-            {% for file in files %}
-                <tr>
-                    <td>{{ file.name }}</td>
-                    <td>{{ file.size }} Bytes</td>
-                    <td>
-                        <a href="{{ file.location.url }}" class="btn btn-primary btn-sm">Baixar arquivo</a>
-                    </td>                
-                    <td>
-                        <form method="POST" action="{% url 'delete_file' file.pk %}">
-                          {% csrf_token %}
-                          <button type="submit" class="btn btn-danger btn-sm" onClick="return confirm('Confirma a remoção do arquivo?')">Remover arquivo</button>
-                        </form>                    
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% else %}    
-    <h6>Você ainda não enviou nenhum arquivo</h6>
-{% endif %}
 
-{% endblock content %} 
+<!-- Caso o usuário tenha algum arquivo armazenado, cria uma tabela para exibição desses arquivos -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <div class="col">
+                <div class="row-sm">
+                    <div class="Pjtitulo">
+                        Projetos Voluta
+                    </div>
+                </div>
+                <div class="row-sm">
+                    <p>
+                        A Voluta Soluções Digitais deseja proporcionar oportunidades de acesso e aprimoramento à tecnologia para as micro e pequenas empresas, promovendo aprendizado e visão empreendedora para os alunos que nela colaboram.
+                    </p>
+                </div>
+                <div class="row-sm">
+                    <img src="{%static 'fileserver/img/projeto.jpg' %}" class="Pjimagem ">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg">
+            <legend class="border-bottom mb-4">Contratos</legend>
+
+            <p>
+                <a href="{% url 'upload_file' %}" class="btn btn-primary">Fazer upload de contrato</a> {% if number_of_files > 0 %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+
+                            <th>Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file in files %}
+                        <tr>
+                            <td>{{ file.name }}</td>
+
+                            <td>
+                                <a href="{{ file.location.url }}" class="btn btn-primary btn-sm">Baixar contrato</a>
+                            </td>
+                            <td>
+                                <form method="POST" action="{% url 'delete_file' file.pk %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm" onClick="return confirm('Confirma a remoção do contrato?')">
+                                        Remover contrato
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+
+    </div>
+</div>
+
+{% else %}
+<h6>Nenhum contrato fechado ainda!<br> Bora trabalhar!</h6>
+{% endif %} {% endblock content %}

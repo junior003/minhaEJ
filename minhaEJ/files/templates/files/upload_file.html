@@ -1,17 +1,25 @@
-{% extends "fileserver/base.html" %}
-{% load crispy_forms_tags %}
-
-{% block content %}
+{% extends "fileserver/base.html" %} {% load crispy_forms_tags %} {% block content %}{% load static %}
 
 <!-- Essa é a view que representa o upload de arquivos. Nessa página, o form (criado em forms.py)
 é carregado. -->
 
-<legend class="border-bottom mb-4">Envie seu arquivo</legend>
 
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-primary">Enviar arquivo</button>
-</form>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <img src="{%static 'fileserver/img/contratos.jpg' %}" class="Pjcontratos ">
+        </div>
+        <div class="col-sm">
+
+            <legend class="border-bottom mb-4">Carregar contrato</legend>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {{ form|crispy }}
+                <button type="submit" class="btn btn-primary">Enviar contrato</button>
+            </form>
+        </div>
+
+    </div>
+</div>
 
 {% endblock content %}

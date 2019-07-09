@@ -1,5 +1,5 @@
  body {
-     background: #fafafa;
+     background: #ffffff;
      color: #333333;
      margin-top: 5rem;
  }
@@ -11,14 +11,46 @@
  h5,
  h6 {
      color: #444444;
+     font-size: 200%;
  }
  
  ul {
      margin: 0;
  }
  
+ p {
+     text-align: justify;
+ }
+ 
  .cadastroSucesso {
      background-color: #4012e6;
+ }
+ 
+ .botaonav {
+     color: #333;
+ }
+ 
+ .fotoinicio {
+     width: 150%;
+     height: auto;
+     padding-left: 10%;
+ }
+ 
+ .Pjimagem {
+     width: 100%;
+     height: auto;
+ }
+ 
+ .Pjcontratos {
+     width: 90%;
+     height: auto;
+     margin-left: 10%;
+ }
+ 
+ .Pjtitulo {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 179%;
+     color: #4012e6;
  }
  
  .site-header {

@@ -13,11 +13,11 @@ No momento em que as outras views são acionadas, seu código é inserido no có
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/now" type="text/css" />
+
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <link rel="stylesheet" type="text/css" href="{% static 'fileserver/main.css' %}"> {% if title %}
+        <link rel="stylesheet" type="text/css" href="{% static 'fileserver/main.css' %}">{% if title %}
         <title>Minha EJ - {{ title }}</title>
         {% else %}
         <title>Minha EJ</title>
@@ -30,16 +30,16 @@ No momento em que as outras views são acionadas, seu código é inserido no có
                 <div class="container">
                     <a class="navbar-brand mr-4" href="{% url 'fileserver-home' %}">MinhaEJ</a>
                     <img src="{%static 'fileserver/img/Logo.png' %}" class="d-inline-block align-top logo">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler " style="background-color: rgb(60, 112, 255);" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
                     <div class="collapse navbar-collapse" id="navbarToggle">
                         <div class="navbar-nav mr-auto">
                             <a class="nav-item nav-link navegacao" href="{% url 'fileserver-home' %}">Voluta</a>
-                            <a class="nav-item nav-link navegacao" href="{% url 'cadastrar_usuario' %}">Membros</a>
-                            <a class="nav-item nav-link navegacao" href="{% url 'lista_membros' %}">Lista Membros</a>
+                            <a class="nav-item nav-link navegacao" href="{% url 'cadastrar_usuario' %}">Cadastrar Membros</a>
+                            <a class="nav-item nav-link navegacao" href="{% url 'lista_membros' %}">Membros</a>
                             <a class="nav-item nav-link navegacao" href="{% url 'file_list' %}">Projetos</a>
-                            <a class="nav-item nav-link navegacao" href="{% url 'file_list' %}">Processo Seletivo</a>
+
                         </div>
                         <!-- Navbar Right Side -->
                         <div class="navbar-nav">

@@ -1,25 +1,23 @@
-{% extends "fileserver/base.html" %}
-{% load crispy_forms_tags %}
+{% extends "fileserver/base.html" %} {% load crispy_forms_tags %}
 
 <!-- Form de cadastro de usuários. É chamado pela função "register", localizada no arquivo users/view.py-->
 
 {% block content %}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Registre-se!</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Quero me cadastrar</button>
-            </div>              
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Registre sua conta</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Quero me cadastrar</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
                 Já possui uma conta? <a class="ml-2" href="{% url 'login' %}">Entrar</a>
             </small>
-        </div>
     </div>
+</div>
 {% endblock content %}
-
